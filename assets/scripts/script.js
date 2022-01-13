@@ -7,20 +7,22 @@ var container = $('#container');
 var row = document.querySelector('.row')
 var hour = document.querySelector('.hour')
 var eventText = $('input[name="event-text"]');
-// this.sibling.desription
-// use jQuery to target class
+
+// TODO: Get saved events of each row
 var savedEvents = [];
 function getSavedEvents() {
     savedEvents = JSON.parse(localStorage.getItem("eventText"))
 }
 var enteredEvent = $(':input');
 // Save events to local storage
+// TODO: Save events text of each row
 function saveEvent(event) {
     event.preventDefault();
     localStorage.setItem("savedEvents", JSON.stringify(eventText.val()));
 };
 container.on('submit', saveEvent);
-// // Set time past events to have class of .past
+// Set time past events to have class of .past
+// TODO: Loop through the rows of hours
 function checkHourStatus() {
     var currentHour = moment();
     var rowHour = 9;
