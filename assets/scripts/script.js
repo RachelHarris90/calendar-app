@@ -11,19 +11,20 @@ var eventText = $('input[name="event-text"]');
 // TODO: Get saved events of each row
 var savedEvents = [];
 function getSavedEvents() {
-    savedEvents = JSON.parse(localStorage.getItem("eventText"))
+    savedEvents = localStorage.getItem("eventText")
 }
+
 var enteredEvent = $(':input');
 // Save events to local storage
 // TODO: Save events text of each row
 function saveEvent(event) {
     event.preventDefault();
-    $("save").siblings('input[name="event-text"]');
-    console.log($("save").siblings(eventText.val()));
-    localStorage.setItem("savedEvents", JSON.stringify(eventText.val()));
+    $(this).siblings(event.target);
+    console.log($(this).siblings(event.target));
+    localStorage.setItem($(this).parent().attr('id'), eventText.val());
 };
-
 container.on('submit', saveEvent);
+
 // Set time past events to have class of .past
 // TODO: Loop through the rows of hours
 function checkHourStatus() {
