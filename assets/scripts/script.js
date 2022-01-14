@@ -18,8 +18,11 @@ var enteredEvent = $(':input');
 // TODO: Save events text of each row
 function saveEvent(event) {
     event.preventDefault();
+    $("save").siblings('input[name="event-text"]');
+    console.log($("save").siblings(eventText.val()));
     localStorage.setItem("savedEvents", JSON.stringify(eventText.val()));
 };
+
 container.on('submit', saveEvent);
 // Set time past events to have class of .past
 // TODO: Loop through the rows of hours
