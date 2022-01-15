@@ -17,8 +17,7 @@ function getSavedEvents() {
 // Save events to local storage
 // TODO: Save events text of each row
 
-function saveEvent(event) {
-    event.preventDefault();
+function saveEvent() {
     // Target the input field that is a sibling of the savebutton
     var eventText = $(this).siblings(".event-text").val();
     console.log(this);
