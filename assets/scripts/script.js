@@ -1,32 +1,38 @@
 // Display current day and date at top of page
 var currentDay = document.querySelector("#currentDay")
 currentDay.textContent = "Today is " + (moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
-// TODO: Update time every second
-// Identify which time has been selected
 
 var hour = document.querySelector('.hour')
-var save = document.querySelector('.saveBtn')
+var save = document.getElementsByClassName('saveBtn')
 
-// TODO: Get saved events of each row
-var savedEvents = [];
+
+// Get saved events of each row
 function getSavedEvents() {
-    savedEvents = localStorage.getItem("eventText")
+    var eventTextSaved9 = localStorage.getItem("event-9");
+    var eventText9 = document.getElementById("event-text-9").textContent = eventTextSaved9;
+    console.log("Saved text is: " + eventTextSaved9);
+    console.log("New event text is: " + eventText9);
 }
+getSavedEvents();
 
-// Save events to local storage
-// TODO: Save events text of each row
-
+// Save events text of each row to local storage
 function saveEvent(event) {
     event.preventDefault();
+    
     // Target the input field that is a sibling of the savebutton
-    var eventText = $(this).siblings(".event-text").val();
-    console.log($(this).siblings(".event-text").val());
+    var eventTextInput = $(this).siblings(".event-text").val();
     var eventKey = $(this).parent().attr("id");
+
     // Save the value of the eventText into local storage with a key of the ID of that row
-    localStorage.setItem(eventKey, eventText);
+    localStorage.setItem(eventKey, eventTextInput);
+    getSavedEvents();
 };
 
-save.addEventListener("click", saveEvent);
+// Loop through the save buttons to save data to local storage
+for(let i = 0; i < save.length; i++) {
+    save[i].addEventListener("click", saveEvent);
+}
+
 
 
 // Set time past events to have class of .past
