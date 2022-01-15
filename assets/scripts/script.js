@@ -8,12 +8,29 @@ var save = document.getElementsByClassName('saveBtn')
 
 // Get saved events of each row
 function getSavedEvents() {
+    // Get saved event descriptions from local storage
     var eventTextSaved9 = localStorage.getItem("event-9");
-    var eventText9 = document.getElementById("event-text-9").textContent = eventTextSaved9;
-    console.log("Saved text is: " + eventTextSaved9);
-    console.log("New event text is: " + eventText9);
+    var eventTextSaved10 = localStorage.getItem("event-10");
+    var eventTextSaved11 = localStorage.getItem("event-11");
+    var eventTextSaved12 = localStorage.getItem("event-12");
+    var eventTextSaved13 = localStorage.getItem("event-13");
+    var eventTextSaved14 = localStorage.getItem("event-14");
+    var eventTextSaved15 = localStorage.getItem("event-15");
+    var eventTextSaved16 = localStorage.getItem("event-16");
+    var eventTextSaved17 = localStorage.getItem("event-17");
+    
+    document.getElementById("event-text-9").value = eventTextSaved9;
+    document.getElementById("event-text-10").value = eventTextSaved10;
+    document.getElementById("event-text-11").value = eventTextSaved11;
+    document.getElementById("event-text-12").value = eventTextSaved12;
+    document.getElementById("event-text-13").value = eventTextSaved13;
+    document.getElementById("event-text-14").value = eventTextSaved14;
+    document.getElementById("event-text-15").value = eventTextSaved15;
+    document.getElementById("event-text-16").value = eventTextSaved16;
+    document.getElementById("event-text-17").value = eventTextSaved17;
 }
 getSavedEvents();
+
 
 // Save events text of each row to local storage
 function saveEvent(event) {
