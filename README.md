@@ -23,6 +23,8 @@ The responsitory is available for cloning [in Github](https://github.com/RachelH
 ### Usage
 The website can be viewed [in Github pages](https://rachelharris90.github.io/calendar-app/).
 
+![Example](./assets/images/work-day-scheduler.png)
+
 ## Credits
 The author of this repository is Rachel Harris, a student of University of Sydney Fullstack Developer Bootcamp. 
 
