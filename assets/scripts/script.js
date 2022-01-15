@@ -6,8 +6,7 @@ currentDay.textContent = "Today is " + (moment().format("dddd, MMMM Do YYYY, h:m
 var container = $('#container');
 var row = document.querySelector('.row')
 var hour = document.querySelector('.hour')
-var eventText = $('input[name="event-text"]');
-var save = $('.saveBtn')
+var save = document.querySelector('.saveBtn')
 
 // TODO: Get saved events of each row
 var savedEvents = [];
@@ -18,16 +17,17 @@ function getSavedEvents() {
 // Save events to local storage
 // TODO: Save events text of each row
 
-function saveEvent(event, t) {
+function saveEvent(event) {
     event.preventDefault();
     // Target the input field that is a sibling of the savebutton
-    console.log(event.target);
-    $(this).siblings(event.target);
+    var eventText = $(this).siblings(".event-text").val();
+    console.log(this);
+    var eventKey = $(this).parent().attr("id");
     // Save the value of the eventText into local storage with a key of the ID of that row
-    localStorage.setItem($(this).parent().attr('id'), eventText.val());
+    localStorage.setItem(eventKey, eventText);
 };
 
-container.on('submit', saveEvent);
+save.addEventListener("click", saveEvent);
 
 
 // Set time past events to have class of .past
