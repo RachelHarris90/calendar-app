@@ -1,4 +1,4 @@
-# calendar-app
+# Work Day Scheduler (calendar-app)
 
 ## Description
 This project contains a Work Day Scheduler that will allows a user to capture the events they have planned for each hour of the work day.
