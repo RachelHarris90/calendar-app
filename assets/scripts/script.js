@@ -16,10 +16,11 @@ function getSavedEvents() {
 // Save events to local storage
 // TODO: Save events text of each row
 
-function saveEvent() {
+function saveEvent(event) {
+    event.preventDefault();
     // Target the input field that is a sibling of the savebutton
     var eventText = $(this).siblings(".event-text").val();
-    console.log(this);
+    console.log($(this).siblings(".event-text").val());
     var eventKey = $(this).parent().attr("id");
     // Save the value of the eventText into local storage with a key of the ID of that row
     localStorage.setItem(eventKey, eventText);
@@ -35,18 +36,17 @@ function checkHourStatus() {
 
     // Get count of number of hour rows on page
     var containerCount = document.querySelector('#container').childElementCount;
-    console.log(containerCount)
+
+    // Get parent element of rows to enable looping through the rows
+    var container = document.querySelector("#container")
 
     // Get ID of each row then take the hour number
     var row = document.querySelector(".row")
 
-    var container = document.querySelector("#container")
-    console.log(container.children)
-
     // Loop through each row to apply styling based on hour of row
     for (var i = 0; i < containerCount; i++) {
         var rowHour = container.children[i].getAttribute("id").split("-")[1];
-        console.log(rowHour);
+
         // Check if the hour of a row is past/present/future
         if (rowHour < currentHour.hour()) {
             container.children[i].setAttribute("class", "past");
